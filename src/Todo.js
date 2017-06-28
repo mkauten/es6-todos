@@ -7,7 +7,14 @@ window.Todo = class Todo extends Resource {
         this.text = text;
         this.isComplete = false;
 
+<<<<<<< HEAD
         let dueDateTs = (new Date(dueDate)).getTime()
+=======
+        const tzOffset = (new Date()).getTimezoneOffset() * 60 * 1000;
+        const dueDateTs = (new Date(dueDate)).getTime() + tzOffset;
+
+        // TOPIC: Number type checking (http://es6-features.org/#NumberTypeChecking)
+>>>>>>> e562fd4... Added comment for link to number type checking
         if (Number.isNaN(dueDateTs)) {
             this._dueDate = Date.now() + 86400000; // default to tomorrow
         } else {
